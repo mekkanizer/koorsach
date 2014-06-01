@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.858,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.548,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\main.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Unit1.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.221,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Project1PCH1.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.123,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.831,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\room.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit3.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.548,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\main.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.735,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit2.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\purchase.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.813,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Project1.cbproj=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.831,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\room.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.548,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\main.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.868,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Unit1.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.831,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\room.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit3.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.735,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit2.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\purchase.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.529,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.735,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit2.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\purchase.h</Transaction>
+  </Transactions>
+</BorlandProject>
