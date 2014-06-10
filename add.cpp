@@ -45,7 +45,13 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 	Label10->Visible = false;
 	ComboBox2->Visible = false;
 	ComboBox3->Visible = false;
-	Button1->Caption = "Добавить";
+	// make ComboBox4->Visible false by default
+	action ? ComboBox4->Visible = true : 0;
+	switch (Form1->action) {
+		case 0: Button1->Caption = "Добавить"; break;
+		case 1: Button1->Caption = "Изменить"; break;
+		case 2: Button1->Caption = "Удалить"; break;
+	}
 
 	switch (Form1->object) {
 		case 1:
@@ -57,8 +63,8 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 
 			Edit1->Visible = true;
 			Edit2->Visible = true;
-			ComboBox4->Visible = Form1->action==2;
-			if(Form1->action == 2){
+			
+			if (Form1->action) {
 				Form1->ADOQuery1->Active = false;
 				Form1->ADOQuery1->SQL->Text = "SELECT Номер_самолета FROM Самолеты";
 				Form1->ADOQuery1->Active = true;
@@ -67,7 +73,7 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 					ComboBox4->Items->Add\
 					(Form1->ADOQuery1->FieldByName("Номер_самолета")->AsString);
-				ComboBox4->ItemIndex=0;               // attention
+				ComboBox4->ItemIndex=0;
 			}
 		break;
 		case 2:
@@ -105,6 +111,18 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 				(Form1->ADOQuery1->FieldByName("Номер_самолета")->AsString);
 			ComboBox1->ItemIndex=0;
 			ComboBox1->Visible = true;
+
+			if (Form1->action) {
+				Form1->ADOQuery1->Active = false;
+				Form1->ADOQuery1->SQL->Text = "SELECT Номер_рейса FROM Рейсы";
+				Form1->ADOQuery1->Active = true;
+
+				ComboBox4->Items->Clear();
+				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+					ComboBox4->Items->Add\
+					(Form1->ADOQuery1->FieldByName("Номер_рейса")->AsString);
+				ComboBox4->ItemIndex=0;
+			}
 		break;
 		case 3:
 			Label1->Caption = "Имя";
@@ -131,6 +149,18 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			Panel1->Visible = true;
 
 			DateTimePicker2->Visible = true;
+
+			if (Form1->action) {
+				Form1->ADOQuery1->Active = false;
+				Form1->ADOQuery1->SQL->Text = "SELECT Номер_пассажира FROM Пассажиры";
+				Form1->ADOQuery1->Active = true;
+
+				ComboBox4->Items->Clear();
+				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+					ComboBox4->Items->Add\
+					(Form1->ADOQuery1->FieldByName("Номер_пассажира")->AsString);
+				ComboBox4->ItemIndex=0;
+			}
 		break;
 		case 4:
 			ticket_type = "econom";
@@ -158,7 +188,7 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox1->Items->Add\
 				(Form1->ADOQuery1->FieldByName("Номер_пассажира")->AsString);
-			ComboBox1->Text = ComboBox1->Items->Strings[0];
+			ComboBox1->ItemIndex=0;
 
 			Form1->ADOQuery1->Active = false;
 			Form1->ADOQuery1->SQL->Text = "SELECT Номер_рейса FROM Рейсы";
@@ -167,7 +197,19 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox2->Items->Add\
 				(Form1->ADOQuery1->FieldByName("Номер_рейса")->AsString);
-			ComboBox2->Text = ComboBox2->Items->Strings[0];
+			ComboBox2->ItemIndex=0;
+
+			if (Form1->action) {
+				Form1->ADOQuery1->Active = false;
+				Form1->ADOQuery1->SQL->Text = "SELECT Номер_билета FROM Билеты";
+				Form1->ADOQuery1->Active = true;
+
+				ComboBox4->Items->Clear();
+				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+					ComboBox4->Items->Add\
+					(Form1->ADOQuery1->FieldByName("Номер_билета")->AsString);
+				ComboBox4->ItemIndex=0;
+			}
 		break;
 	}
 }

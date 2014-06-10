@@ -69,7 +69,7 @@ void __fastcall TForm2::ComboBox1Select(TObject *Sender)
 	for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 		ComboBox2->Items->Add\
 		(Form1->ADOQuery1->FieldByName("Пункт_назначения")->AsString);
-	ComboBox2->Text = ComboBox2->Items->Strings[0];
+	ComboBox2->ItemIndex=0;
 }
 //---------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ void __fastcall TForm2::search_flightClick(TObject *Sender)
 		tim3 = tim3.SubString(0,16);
 		flights->Items->Add(tim3);
 	}
-	flights->Text = flights->Items->Strings[0];
+	flights->ItemIndex=0;
 
 	if (flights->Text.IsEmpty())
 		flights->Text = "Рейсы не найдены"; else {
@@ -201,7 +201,7 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 	for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 		ComboBox1->Items->Add\
 		(Form1->ADOQuery1->FieldByName("Пункт_отправления")->AsString);
-	ComboBox1->Text = ComboBox1->Items->Strings[0];
+	ComboBox1->ItemIndex=0;
 }
 //---------------------------------------------------------------------------
 

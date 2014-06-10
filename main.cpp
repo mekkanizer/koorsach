@@ -260,14 +260,14 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	ADOQuery1->Active = false;
 	ADOQuery1->SQL->Text = "SELECT * FROM Билеты";
 	ADOQuery1->Active = true;
-	action = 0;
+	action = -1;
 	object = 0;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::N3Click(TObject *Sender)
 {
-	action = 1;
+	action = 0;
 	object = 1;
 	this->Hide();
 	Form4->Show();
@@ -276,7 +276,7 @@ void __fastcall TForm1::N3Click(TObject *Sender)
 
 void __fastcall TForm1::N2Click(TObject *Sender)
 {
-	action = 1;
+	action = 0;
 	object = 2;
 	this->Hide();
 	Form4->Show();
@@ -285,7 +285,7 @@ void __fastcall TForm1::N2Click(TObject *Sender)
 
 void __fastcall TForm1::N4Click(TObject *Sender)
 {
-	action = 1;
+	action = 0;
 	object = 3;
 	this->Hide();
 	Form4->Show();
@@ -294,7 +294,7 @@ void __fastcall TForm1::N4Click(TObject *Sender)
 
 void __fastcall TForm1::N5Click(TObject *Sender)
 {
-	action = 1;
+	action = 0;
 	object = 4;
 	this->Hide();
 	Form4->Show();
@@ -303,7 +303,7 @@ void __fastcall TForm1::N5Click(TObject *Sender)
 
 void __fastcall TForm1::N8Click(TObject *Sender)
 {
-	action = 2;
+	action = 1;
 	object = 1;
 	this->Hide();
 	Form4->Show();
@@ -312,7 +312,7 @@ void __fastcall TForm1::N8Click(TObject *Sender)
 
 void __fastcall TForm1::N9Click(TObject *Sender)
 {
-	action = 2;
+	action = 1;
 	object = 2;
 	this->Hide();
 	Form4->Show();
@@ -321,7 +321,7 @@ void __fastcall TForm1::N9Click(TObject *Sender)
 
 void __fastcall TForm1::N10Click(TObject *Sender)
 {
-	action = 2;
+	action = 1;
 	object = 3;
 	this->Hide();
 	Form4->Show();
@@ -330,7 +330,7 @@ void __fastcall TForm1::N10Click(TObject *Sender)
 
 void __fastcall TForm1::N11Click(TObject *Sender)
 {
-	action = 2;
+	action = 1;
 	object = 4;
 	this->Hide();
 	Form4->Show();
@@ -339,7 +339,7 @@ void __fastcall TForm1::N11Click(TObject *Sender)
 
 void __fastcall TForm1::N12Click(TObject *Sender)
 {
-	action = 3;
+	action = 2;
 	object = 1;
 	this->Hide();
 	Form4->Show();
@@ -348,7 +348,7 @@ void __fastcall TForm1::N12Click(TObject *Sender)
 
 void __fastcall TForm1::N13Click(TObject *Sender)
 {
-	action = 3;
+	action = 2;
 	object = 2;
 	this->Hide();
 	Form4->Show();
@@ -357,7 +357,7 @@ void __fastcall TForm1::N13Click(TObject *Sender)
 
 void __fastcall TForm1::N14Click(TObject *Sender)
 {
-	action = 3;
+	action = 2;
 	object = 3;
 	this->Hide();
 	Form4->Show();
@@ -366,7 +366,7 @@ void __fastcall TForm1::N14Click(TObject *Sender)
 
 void __fastcall TForm1::N15Click(TObject *Sender)
 {
-	action = 3;
+	action = 2;
 	object = 4;
 	this->Hide();
 	Form4->Show();
