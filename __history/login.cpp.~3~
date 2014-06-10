@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+#include "login.h"
+#include "sha1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm5 *Form5;
+//---------------------------------------------------------------------------
+__fastcall TForm5::TForm5(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm5::Button1Click(TObject *Sender)
+{
+	SHA1 sha;
+	char* input;
+	unsigned message_digest[5];
+	sha.Reset();
+	input = (char*) malloc (Edit2->Text.Length()*sizeof(char));
+	for (int i = 0; i < Edit2->Text.Length(); input[i] = Edit2->Text[i+1], i++)
+	sha << input;
+	sha.Result(message_digest);
+}
+//---------------------------------------------------------------------------

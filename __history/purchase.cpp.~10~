@@ -1,0 +1,203 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+#include "main.h"
+#include "purchase.h"
+#include "room.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma link "frxClass"
+#pragma link "frxDBSet"
+#pragma resource "*.dfm"
+TForm2 *Form2;
+
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::exitClick(TObject *Sender)
+{
+	this->Close();
+	Form1->Show();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm2::RadioButton2Click(TObject *Sender)
+{
+	DateTimePicker2->Enabled = false;
+	Panel2->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::RadioButton1Click(TObject *Sender)
+{
+	DateTimePicker2->Enabled = true;
+	Panel2->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::search_ticketClick(TObject *Sender)
+{
+	if (flights->Text == "Рейсы")
+		ShowMessage("Выберите рейс!");
+	else {
+	String divisor = "4";
+	if (ticket_type[1] == 'e')
+		divisor = "2";
+	Form1->ADOQuery1->Close();
+	Form1->ADOQuery1->SQL->Clear();
+	Form1->ADOQuery1->SQL->Add("\
+	SELECT Самолеты.Кол_во_мест/" + divisor + " - \
+	(\
+		SELECT COUNT(Билеты.Номер_билета)\
+		FROM\
+			Билеты\
+			INNER JOIN Рейсы\
+				ON Билеты.Номер_рейса = Рейсы.Номер_рейса\
+		WHERE\
+			Билеты.Тип_билета = '" + ticket_type + "'\
+			AND\
+			Номер_рейса = '" + n_fl + "'\
+	)\
+	FROM\
+		Самолеты\
+		INNER JOIN Рейсы\
+			ON Самолеты.Номер_самолета = Рейсы.Номер_самолета\
+	WHERE\
+		Номер_рейса = '" + n_fl + "'");
+	Form1->ADOQuery1->Open();
+	number_ticket_amount->Caption =\
+	Form1->ADOQuery1->Fields->Fields[0]->AsString;
+	caption_ticket_amount->Visible = true;
+	number_ticket_amount->Visible = true;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::FormShow(TObject *Sender)
+{
+	//EnableMenuItem(GetSystemMenu(this->Handle, false),\
+	//SC_CLOSE, MF_BYCOMMAND || MF_GRAYED);
+	DateTimePicker1->Date = DateTimePicker1->Date.CurrentDate();
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT DISTINCT Пункт_отправления FROM Рейсы";
+	Form1->ADOQuery1->Active = true;
+	for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+		ComboBox1->Items->Add\
+		(Form1->ADOQuery1->FieldByName("Пункт_отправления")->AsString);
+	ComboBox1->Text = ComboBox1->Items->Strings[0];
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::ComboBox1Select(TObject *Sender)
+{
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT DISTINCT Пункт_назначения FROM Рейсы\
+	WHERE Пункт_отправления = '" + ComboBox1->Text + "'";
+	Form1->ADOQuery1->Active = true;
+	ComboBox2->Items->Clear();
+	for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+		ComboBox2->Items->Add\
+		(Form1->ADOQuery1->FieldByName("Пункт_назначения")->AsString);
+	ComboBox2->Text = ComboBox2->Items->Strings[0];
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::search_flightClick(TObject *Sender)
+{
+	String tim3;
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT Время_вылета AS a FROM Рейсы\
+	WHERE Пункт_отправления = '" + ComboBox1->Text + \
+	"' AND Пункт_назначения = '" + ComboBox2->Text + "'";
+	Form1->ADOQuery1->Active = true;
+	flights->Items->Clear();
+	for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next()) {
+		tim3 = Form1->ADOQuery1->FieldByName("a")->AsString;
+		tim3 = tim3.SubString(12,5);
+		if (tim3[5] == ':')
+			tim3 = tim3.SubString(0,4);
+		flights->Items->Add(tim3);
+	}
+	flights->Text = flights->Items->Strings[0];
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::RadioButton5Click(TObject *Sender)
+{
+	ticket_type = "econom";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::RadioButton4Click(TObject *Sender)
+{
+	ticket_type = "busine";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::RadioButton3Click(TObject *Sender)
+{
+	ticket_type = "first";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	Form1->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::Button1Click(TObject *Sender)
+{
+	if (flights->Text == "Рейсы")
+		ShowMessage("Выберите рейс!");
+	else {
+	Form1->ADOQuery1->Close();
+	Form1->ADOQuery1->SQL->Clear();
+	Form1->ADOQuery1->SQL->Add("\
+		SELECT Имя, Фамилия, Отчество, Дата_Рождения, Пол,\
+		Серия_паспорта, Номер_паспорта\
+		FROM Пассажиры INNER JOIN Билеты\
+		ON Пассажиры.Номер_пассажира = Билеты.Номер_пассажира\
+		WHERE Номер_рейса = '" + n_fl + "'");
+	Form1->ADOQuery1->Open();
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::takeseatClick(TObject *Sender)
+{
+	TLocateOptions SearchOptions;
+	if (flights->Text == "Рейсы")
+		ShowMessage("Выберите рейс!");
+	else {
+		Form2->Hide();
+		Form3->Show();
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::flightsSelect(TObject *Sender)
+{
+	Form1->ADOQuery1->Close();
+	Form1->ADOQuery1->SQL->Clear();
+	Form1->ADOQuery1->SQL->Add("\
+		SELECT Номер_рейса\
+		FROM Рейсы\
+		WHERE\
+		Пункт_отправления = '" + ComboBox1->Text + "' AND\
+		Пункт_назначения = '" + ComboBox2->Text + "' AND\
+		CAST(Время_вылета AS TIME) = '" + flights->Text + "'");
+	Form1->ADOQuery1->Open();
+	n_fl = Form1->ADOQuery1->Fields->Fields[0]->AsString;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::FormCreate(TObject *Sender)
+{
+	ticket_type = "econom";
+}
+//---------------------------------------------------------------------------
+

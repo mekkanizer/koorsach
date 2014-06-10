@@ -1,0 +1,67 @@
+//---------------------------------------------------------------------------
+
+#ifndef roomH
+#define roomH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+//---------------------------------------------------------------------------
+struct seat
+{
+	TShape *n;
+	seat *next;
+};
+
+class room
+{
+	seat *First;
+	int h,w,x10;
+	TPanel *curr_page;
+
+	void __fastcall NewSeat (int tag, int l, int t);
+
+	void __fastcall NewPage (int t, int l, int b);
+
+	public:
+	__fastcall room (int h);
+
+	void __fastcall Occupy ( TShape * Sender, TMouseButton Button, TShiftState Shift, int X, int Y );
+
+	void __fastcall Reserve (int srch);
+
+	void __fastcall Down();
+
+	void __fastcall Up();
+};
+
+class TForm3 : public TForm
+{
+__published:	// IDE-managed Components
+	TPanel *Panel1;
+	TButton *Button1;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
+	TLabel *Label4;
+	TLabel *Label5;
+	TLabel *Label6;
+	TLabel *Label7;
+	TLabel *Label8;
+	TLabel *Label9;
+	TLabel *Label10;
+	TButton *above;
+	TButton *below;
+	void __fastcall FormShow(TObject *Sender);
+	void __fastcall belowClick(TObject *Sender);
+	void __fastcall aboveClick(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TForm3(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm3 *Form3;
+//---------------------------------------------------------------------------
+#endif

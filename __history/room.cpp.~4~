@@ -1,0 +1,140 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "room.h"
+#include "main.h"
+#include "purchase.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm3 *Form3;
+room *r00m;
+void __fastcall room::NewSeat (int tag, int l, int t)
+	{
+		if (l < 3)
+			l = l * 30;
+		else if ((l > 2) && (l < 7))
+			l = 30 + l * 30;
+		else l = 60 + l * 30;
+		seat* n = new seat();
+		if (n)
+		{
+			n->n = new TShape (Form1);
+			n->n->Tag = tag;
+			n->n->Left = l;
+			n->n->Top = t*30;
+			n->n->Width = 30;
+			n->n->Height = 30;
+			n->n->Brush->Color = clGreen;
+			n->n->Parent = Form3->Panel1;
+			n->n->OnMouseDown = (TMouseEvent)(&Occupy);
+			n->next = First;
+			First = n;
+		}
+	}
+
+void __fastcall room::NewPage (int t, int l, int b) {
+	TLabel *row;
+	TPanel *nums = new TPanel(Form3);
+	nums->Width = 30;
+	nums->Height = 300;
+	nums->Top = t;
+	nums->Left = l - 30;
+	nums->Parent = Form3;
+
+	for (int i = 0; i < 10; i++) {
+		row = new TLabel(Form1);
+		row->Parent = nums;
+		row->Caption = " " + IntToStr(b+i+1);
+		row->Top = i*30;
+		row->Left = 1;
+		row->Width = 30;
+		row->Height = 30;
+		row->Font->Size = 16;
+	}
+	curr_page = nums;
+}
+
+__fastcall room::room (int h): h(h), w(10)
+	{
+		int i, j;
+		First = 0;
+		x10 = 0;
+		for (i = 0; (i < h)&&(i < 10); ++i)
+			for (j = 0; j < w; ++j)
+				NewSeat(j+i*w, j, i);
+		Form3->Panel1->Height = 300;
+		Form3->Panel1->Width = 360;
+		Form3->Panel1->Visible = true;
+		NewPage(Form3->Panel1->Top, Form3->Panel1->Left, x10);
+		if (h>10)
+			Form3->below->Enabled = true;
+	}
+
+void __fastcall room::Occupy ( TShape * Sender, TMouseButton Button, \
+							   TShiftState Shift, int X, int Y )
+{
+	if (Sender->Brush->Color == clGreen)
+		Sender->Brush->Color = clMaroon;
+}
+
+void __fastcall room::Down() {
+	x10++;
+	delete (curr_page);
+	NewPage(Form1->Panel1->Top, Form1->Panel1->Left, x10);
+	Form3->above->Enabled = true;
+	if (x10 > (h / 10))
+		Form3->below->Enabled = false;
+}
+
+void __fastcall room::Up() {
+	x10--;
+	delete (curr_page);
+	NewPage(Form1->Panel1->Top, Form1->Panel1->Left, x10);
+	Form3->below->Enabled = true;
+	if (x10 == 0)
+		Form3->above->Enabled = false;
+}
+
+void __fastcall room::Reserve(int srch)
+{
+	seat * tmp;
+	for (tmp = First; tmp; tmp = tmp->next)
+		if (tmp->n->Tag == srch)
+			tmp->n->Brush->Color = clMaroon;
+}
+//---------------------------------------------------------------------------
+__fastcall TForm3::TForm3(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::FormShow(TObject *Sender)
+{
+	room *r00m;
+	Form1->ADOQuery1->Close();
+	Form1->ADOQuery1->SQL->Clear();
+	Form1->ADOQuery1->SQL->Add("\
+		SELECT Кол_во_мест\
+		FROM Самолеты INNER JOIN Рейсы\
+		ON Самолеты.Номер_самолета = Рейсы.Номер_самолета\
+		WHERE CAST(Время_вылета AS TIME) = '"\
+		+ Form2->flights->Text + "'");
+	Form1->ADOQuery1->Open();
+	r00m =	new room((Form1->ADOQuery1->Fields->Fields[0]->AsInteger)/10);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::belowClick(TObject *Sender)
+{
+	r00m->Down();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::aboveClick(TObject *Sender)
+{
+	r00m->Up();
+}
+//---------------------------------------------------------------------------
+

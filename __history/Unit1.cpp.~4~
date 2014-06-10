@@ -1,0 +1,66 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::RadioButton1Click(TObject *Sender)
+{
+	ADOTable1->Active = false;
+	ADOTable1->TableName = "Билеты";
+	ADOTable1->Active = true;
+	Form1->curr_table = 1;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::RadioButton2Click(TObject *Sender)
+{
+	ADOTable1->Active = false;
+	ADOTable1->TableName = "Пассажиры";
+	ADOTable1->Active = true;
+	Form1->curr_table = 2;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::RadioButton3Click(TObject *Sender)
+{
+	ADOTable1->Active = false;
+	ADOTable1->TableName = "Рейсы";
+	ADOTable1->Active = true;
+	Form1->curr_table = 3;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::RadioButton4Click(TObject *Sender)
+{
+	ADOTable1->Active = false;
+	ADOTable1->TableName = "Самолеты";
+	ADOTable1->Active = true;
+	Form1->curr_table = 4;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::add_randClick(TObject *Sender)
+{
+	//srand(time(NULL));
+	switch (curr_table) {
+		case 1:
+			ADOTable1->Edit();
+			ADOTable1->Insert();
+			ADOTable1->FieldByName("Номер_билета")->AsString = "1";
+			ADOTable1->Post();
+		break;
+	}
+}
+//---------------------------------------------------------------------------
+

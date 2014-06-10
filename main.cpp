@@ -5,10 +5,43 @@
 
 #include "main.h"
 #include "purchase.h"
+#include "add.h"
+#include "edit.h"
+#include "del.h"
+#include "login.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
+
+bool __fastcall TForm1::is_numeric (String data) {
+	bool result = true;
+	if (data.IsEmpty())
+		result = false;
+	else
+		for (int i = 1; (i <= data.Length()) && (result); i++)
+			if ((data[i] < '0') || (data[i] > '9'))
+				result = false;
+	return result;
+}
+//---------------------------------------------------------------------------
+bool __fastcall TForm1::is_time (String data) {
+	bool result = true;
+	bool two = false;
+	if ((data[1] < '0') || (data[1] > '2') || (data[2] < '0')
+	|| (data[3] != ':') || (data[4] < '0') || (data[4] > '5')
+	|| (data[5] <  '0') || (data[5] > '9'))
+		result = false;
+	if (data[1] == '2')
+		two = true;
+	if (two) {
+		if (data[2] > '3')
+			result = false;
+	}
+	else if (data[2] > '9')
+		result = false;
+	return result;
+}
 
 String str_rand(int l) {
 	int i;
@@ -226,6 +259,124 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
 	srand(time(NULL));
+	ADOQuery1->Active = false;
+	ADOQuery1->SQL->Text = "SELECT * FROM Билеты";
+	ADOQuery1->Active = true;
+	object = 0;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N3Click(TObject *Sender)
+{
+	action = 1;
+	object = 1;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N2Click(TObject *Sender)
+{
+	action = 1;
+	object = 2;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N4Click(TObject *Sender)
+{
+	action = 1;
+	object = 3;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N5Click(TObject *Sender)
+{
+	action = 1;
+	object = 4;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N8Click(TObject *Sender)
+{
+	action = 2;
+	object = 1;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N9Click(TObject *Sender)
+{
+	action = 2;
+	object = 2;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N10Click(TObject *Sender)
+{
+	action = 2;
+	object = 3;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N11Click(TObject *Sender)
+{
+	action = 2;
+	object = 4;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N12Click(TObject *Sender)
+{
+	action = 3;
+	object = 1;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N13Click(TObject *Sender)
+{
+	action = 3;
+	object = 2;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N14Click(TObject *Sender)
+{
+	action = 3;
+	object = 3;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N15Click(TObject *Sender)
+{
+	action = 3;
+	object = 4;
+	Form1->Hide();
+	Form4->Show();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	Form5->Close();
 }
 //---------------------------------------------------------------------------
 
