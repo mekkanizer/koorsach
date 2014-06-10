@@ -1,3 +1,4 @@
+
 //---------------------------------------------------------------------------
 
 #include <vcl.h>
@@ -16,12 +17,6 @@ TForm2 *Form2;
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
 {
-}
-//---------------------------------------------------------------------------
-void __fastcall TForm2::exitClick(TObject *Sender)
-{
-	this->Close();
-	Form1->Show();
 }
 
 //---------------------------------------------------------------------------
@@ -136,6 +131,9 @@ void __fastcall TForm2::RadioButton3Click(TObject *Sender)
 
 void __fastcall TForm2::FormClose(TObject *Sender, TCloseAction &Action)
 {
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT * FROM Рейсы";
+	Form1->ADOQuery1->Active = true;
 	Form1->Show();
 }
 //---------------------------------------------------------------------------

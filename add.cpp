@@ -103,7 +103,7 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox1->Items->Add\
 				(Form1->ADOQuery1->FieldByName("Номер_самолета")->AsString);
-			ComboBox1->Text = ComboBox1->Items->Strings[0];
+			ComboBox1->ItemIndex=0;
 			ComboBox1->Visible = true;
 		break;
 		case 3:
@@ -315,6 +315,15 @@ void __fastcall TForm4::RadioButton4Click(TObject *Sender)
 void __fastcall TForm4::RadioButton3Click(TObject *Sender)
 {
 	ticket_type = "first";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT * FROM Рейсы";
+	Form1->ADOQuery1->Active = true;
+	Form1->Show();
 }
 //---------------------------------------------------------------------------
 

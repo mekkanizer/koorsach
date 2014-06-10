@@ -34,7 +34,6 @@ __published:	// IDE-managed Components
 	TfrxReport *frxReport1;
 	TfrxDBDataset *frxDBDataset1;
 	TComboBox *flights;
-	void __fastcall exitClick(TObject *Sender);
 	void __fastcall search_ticketClick(TObject *Sender);
 	void __fastcall ComboBox1Select(TObject *Sender);
 	void __fastcall search_flightClick(TObject *Sender);

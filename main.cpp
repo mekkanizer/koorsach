@@ -6,8 +6,6 @@
 #include "main.h"
 #include "purchase.h"
 #include "add.h"
-#include "edit.h"
-#include "del.h"
 #include "login.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -262,6 +260,7 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	ADOQuery1->Active = false;
 	ADOQuery1->SQL->Text = "SELECT * FROM Билеты";
 	ADOQuery1->Active = true;
+	action = 0;
 	object = 0;
 }
 //---------------------------------------------------------------------------
@@ -270,7 +269,7 @@ void __fastcall TForm1::N3Click(TObject *Sender)
 {
 	action = 1;
 	object = 1;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -279,7 +278,7 @@ void __fastcall TForm1::N2Click(TObject *Sender)
 {
 	action = 1;
 	object = 2;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -288,7 +287,7 @@ void __fastcall TForm1::N4Click(TObject *Sender)
 {
 	action = 1;
 	object = 3;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -297,7 +296,7 @@ void __fastcall TForm1::N5Click(TObject *Sender)
 {
 	action = 1;
 	object = 4;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -306,7 +305,7 @@ void __fastcall TForm1::N8Click(TObject *Sender)
 {
 	action = 2;
 	object = 1;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -315,7 +314,7 @@ void __fastcall TForm1::N9Click(TObject *Sender)
 {
 	action = 2;
 	object = 2;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -324,7 +323,7 @@ void __fastcall TForm1::N10Click(TObject *Sender)
 {
 	action = 2;
 	object = 3;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -333,7 +332,7 @@ void __fastcall TForm1::N11Click(TObject *Sender)
 {
 	action = 2;
 	object = 4;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -342,7 +341,7 @@ void __fastcall TForm1::N12Click(TObject *Sender)
 {
 	action = 3;
 	object = 1;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -351,7 +350,7 @@ void __fastcall TForm1::N13Click(TObject *Sender)
 {
 	action = 3;
 	object = 2;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -360,7 +359,7 @@ void __fastcall TForm1::N14Click(TObject *Sender)
 {
 	action = 3;
 	object = 3;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------
@@ -369,7 +368,7 @@ void __fastcall TForm1::N15Click(TObject *Sender)
 {
 	action = 3;
 	object = 4;
-	Form1->Hide();
+	this->Hide();
 	Form4->Show();
 }
 //---------------------------------------------------------------------------

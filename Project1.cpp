@@ -6,11 +6,11 @@
 //---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
-USEFORM("purchase.cpp", Form2);
-USEFORM("room.cpp", Form3);
-USEFORM("add.cpp", Form4);
-USEFORM("main.cpp", Form1);
-USEFORM("login.cpp", Form5);
+USEFORM("C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\purchase.cpp", Form2);
+USEFORM("C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\room.cpp", Form3);
+USEFORM("C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\add.cpp", Form4);
+USEFORM("C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\main.cpp", Form1);
+USEFORM("C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\login.cpp", Form5);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

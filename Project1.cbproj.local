@@ -32,13 +32,14 @@
     <Transaction>2014.06.09 12:29:19.392,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\add.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\action.dfm</Transaction>
     <Transaction>2014.06.09 12:29:38.019,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit6.cpp</Transaction>
     <Transaction>2014.06.09 12:29:54.032,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\edit.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit6.dfm</Transaction>
-    <Transaction>2014.06.09 12:29:54.032,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\edit.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit6.h</Transaction>
     <Transaction>2014.06.09 12:29:54.032,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\edit.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit6.cpp</Transaction>
+    <Transaction>2014.06.09 12:29:54.032,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\edit.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit6.h</Transaction>
     <Transaction>2014.06.09 12:59:53.503,=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit7.cpp</Transaction>
     <Transaction>2014.06.09 13:00:59.036,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\del.dfm=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit7.dfm</Transaction>
-    <Transaction>2014.06.09 13:00:59.036,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\del.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit7.h</Transaction>
     <Transaction>2014.06.09 13:00:59.036,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\del.cpp=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit7.cpp</Transaction>
+    <Transaction>2014.06.09 13:00:59.036,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\del.h=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Unit7.h</Transaction>
     <Transaction>2014.06.10 13:35:30.798,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\del.cpp=</Transaction>
     <Transaction>2014.06.10 13:35:43.036,C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\edit.cpp=</Transaction>
+    <Transaction>2014.06.10 23:04:51.130,E:\Документы\лара(host)\koorsach\Project1.cbproj=C:\Documents and Settings\mekkanizer\Мои документы\RAD Studio\Projects\kursach\Project1.cbproj</Transaction>
   </Transactions>
 </BorlandProject>

@@ -50,6 +50,7 @@ __published:	// IDE-managed Components
 	void __fastcall RadioButton5Click(TObject *Sender);
 	void __fastcall RadioButton4Click(TObject *Sender);
 	void __fastcall RadioButton3Click(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 	String ticket_type;
 public:		// User declarations

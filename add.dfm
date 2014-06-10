@@ -11,6 +11,7 @@ object Form4: TForm4
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnHide = FormHide
   OnShow = FormShow
   PixelsPerInch = 96
