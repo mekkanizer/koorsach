@@ -1,0 +1,366 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Но",
+				"Номер_пассажира"
+			],
+			[
+				"col",
+				"collected"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"le",
+				"leaf"
+			],
+			[
+				"tr",
+				"tree_node"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"pri",
+				"print_count"
+			],
+			[
+				"B",
+				"BinarySearchTree"
+			],
+			[
+				"fa",
+				"fstream"
+			],
+			[
+				"ma",
+				"material"
+			],
+			[
+				"for",
+				"for	For Loop"
+			],
+			[
+				"get",
+				"get_p_index"
+			],
+			[
+				"g",
+				"get_p_index"
+			],
+			[
+				"pl",
+				"plants"
+			],
+			[
+				"in",
+				"insert"
+			],
+			[
+				"pla",
+				"plants"
+			],
+			[
+				"F",
+				"FindSeat"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"n",
+				"n_seat"
+			],
+			[
+				"n_",
+				"n_pas"
+			],
+			[
+				"fi",
+				"FieldByName"
+			],
+			[
+				"S",
+				"SELECT"
+			],
+			[
+				"ad",
+				"ADOQuery1"
+			],
+			[
+				"As",
+				"AsString"
+			],
+			[
+				"In",
+				"IntToStr"
+			],
+			[
+				"I",
+				"IntToStr"
+			],
+			[
+				"str",
+				"str_rand"
+			],
+			[
+				"A",
+				"ADOQuery1"
+			],
+			[
+				"cl",
+				"clmn"
+			],
+			[
+				"mi",
+				"min"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"i",
+				"if	If Condition"
+			],
+			[
+				"p",
+				"printf	printf …"
+			],
+			[
+				"a",
+				"array"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/n76/Документы/лара(host)/koorsach/purchase.cpp",
+		"/home/n76/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/n76/Документы/лара(host)/koorsach/add.cpp",
+		"/home/n76/Документы/лара(host)/koorsach/Project1.cbproj",
+		"/home/n76/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/n76/Документы/лара(host)/koorsach/purchase.h",
+		"/home/n76/Документы/proj/pr4/main.c",
+		"/home/n76/Документы/proj/pr6/main.cpp",
+		"/home/n76/Документы/proj/pr5/main.cpp",
+		"/home/n76/Документы/proj/pr8/main.cpp",
+		"/home/n76/sites.json",
+		"/media/n76/8E86-A82C/pr5/main.cpp",
+		"/home/n76/Документы/кумскова/3 Функции системы.txt",
+		"/media/n76/Transcend/main.cpp",
+		"/home/n76/Документы/proj/pr5/pr5.cbp",
+		"/home/n76/Загрузки/1.c",
+		"/home/n76/android/FlashTool/FlashTool",
+		"/home/n76/Документы/proj/pr9/process.h",
+		"/home/n76/Документы/proj/pr9/input.h",
+		"/home/n76/Документы/proj/pr9/output.h",
+		"/home/n76/Документы/proj/pr9/main.c",
+		"/home/n76/Документы/proj/pr1/main.c",
+		"/home/n76/android/system/device/sony/huashan/extract-files.sh",
+		"/home/n76/android/system/device/sony/common/extract-files.sh",
+		"/home/n76/Документы/proj/purchase.cpp",
+		"/home/n76/Документы/proj/purchase.h",
+		"/home/n76/Документы/proj/window_test/window_test.cpp",
+		"/home/n76/Документы/proj/window_test/settings.h",
+		"/home/n76/Документы/proj/pr7/main.cpp",
+		"/tmp/codeblocks_dbgrpt-13641-20140516T154808/codeblocks.xml",
+		"/home/n76/.config/sublime-text-3/Packages/User/C++.sublime-settings",
+		"/home/n76/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/n76/Документы/proj/mas.c",
+		"/home/n76/Документы/proj/test/str_rand(c_style).c",
+		"/home/n76/Документы/proj/test/main.c",
+		"/home/n76/Документы/proj/pr3/main.c",
+		"/home/n76/Документы/proj/pr4/main.c.old",
+		"/home/n76/Документы/proj/pr3/untitled.c",
+		"/home/n76/Документы/proj/matrix.c",
+		"/media/n76/BAC7-E46A/pastie-8972598.sql",
+		"/home/n76/ton.sh"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"action = 3;",
+			"action = 2;",
+			"C:\\Documents and Settings\\mekkanizer\\Мои документы\\RAD Studio\\Projects\\kursach\\",
+			"shift",
+			"found = true;",
+			"erase",
+			"price",
+			"result++",
+			"tmp",
+			"fout",
+			"n-1",
+			"printf(",
+			"tab",
+			"put",
+			"/*\nput",
+			"/*\n",
+			"a[i][j][j]",
+			"a[i]"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"action = 2;",
+			"action = 1;",
+			"E:\\Документы\\лара(host)\\koorsach\\",
+			"collected.insert(tmp);",
+			"destruct",
+			"tmp",
+			"found = true",
+			"array[i]->goods[j]",
+			"cout",
+			"array[i]->n-1",
+			"cout<<",
+			"a[i][j]"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Project1.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

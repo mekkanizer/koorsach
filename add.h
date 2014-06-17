@@ -43,6 +43,9 @@ __published:	// IDE-managed Components
 	TComboBox *ComboBox3;
 	TLabel *Label11;
 	TComboBox *ComboBox4;
+	TLabel *Label12;
+	TCheckBox *CheckBox1;
+	TCheckBox *CheckBox2;
 	void __fastcall FormHide(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall ComboBox2Select(TObject *Sender);
@@ -51,6 +54,9 @@ __published:	// IDE-managed Components
 	void __fastcall RadioButton4Click(TObject *Sender);
 	void __fastcall RadioButton3Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall ComboBox4Select(TObject *Sender);
+	void __fastcall CheckBox1Click(TObject *Sender);
+	void __fastcall CheckBox2Click(TObject *Sender);
 private:	// User declarations
 	String ticket_type;
 public:		// User declarations

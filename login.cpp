@@ -45,9 +45,9 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 		Form1->N1->Enabled = false;
 		Form1->N6->Enabled = false;
 		Form1->N7->Enabled = false;
-		Form1->RadioButton1 = false;
-		Form1->RadioButton2 = false;
-		Form1->DBNavigator1->Enabled = false;
+		Form1->RadioButton1->Enabled = false;
+		Form1->RadioButton2->Enabled = false;
+		Form1->DBNavigator1->Visible = false;
 	}
 }
 //---------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+ï»¿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -43,20 +43,25 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 	Panel2->Visible = false;
 	Label9->Visible = false;
 	Label10->Visible = false;
+	Label11->Visible = false;
 	ComboBox2->Visible = false;
 	ComboBox3->Visible = false;
-	// make ComboBox4->Visible false by default
-	action ? ComboBox4->Visible = true : 0;
+	CheckBox1->Visible = false;
+	CheckBox2->Visible = false;
+	if (Form1->action) {
+		ComboBox4->Visible = true;
+		Label12->Visible = true;
+	}
 	switch (Form1->action) {
-		case 0: Button1->Caption = "Äîáàâèòü"; break;
-		case 1: Button1->Caption = "Èçìåíèòü"; break;
-		case 2: Button1->Caption = "Óäàëèòü"; break;
+		case 0: Button1->Caption = "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ"; break;
+		case 1: Button1->Caption = "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ"; break;
+		case 2: Button1->Caption = "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ"; break;
 	}
 
 	switch (Form1->object) {
 		case 1:
-			Label1->Caption = "Òèï ñàìîëåòà";
-			Label2->Caption = "Êîëè÷åñòâî ìåñò";
+			Label1->Caption = "Ð¢Ð¸Ð¿ ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°";
+			Label2->Caption = "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¼ÐµÑÑ‚";
 
 			Label1->Visible = true;
 			Label2->Visible = true;
@@ -65,25 +70,27 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			Edit2->Visible = true;
 			
 			if (Form1->action) {
+				Label12->Caption = "ÐÐ¾Ð¼ÐµÑ€ ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°";
+				Label12->Visible = true;
 				Form1->ADOQuery1->Active = false;
-				Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_ñàìîëåòà FROM Ñàìîëåòû";
+				Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð° FROM Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹";
 				Form1->ADOQuery1->Active = true;
 
 				ComboBox4->Items->Clear();
 				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 					ComboBox4->Items->Add\
-					(Form1->ADOQuery1->FieldByName("Íîìåð_ñàìîëåòà")->AsString);
+					(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°")->AsString);
 				ComboBox4->ItemIndex=0;
 			}
 		break;
 		case 2:
-			Label1->Caption = "Ïóíêò îòïðàâëåíèÿ";
-			Label2->Caption = "Ïóíêò íàçíà÷åíèÿ";
-			Label3->Caption = "Äàòà âûëåòà";
-			Label4->Caption = "Äàòà ïðèëåòà";
-			Label6->Caption = "Âðåìÿ âûëåòà";
-			Label7->Caption = "Âðåìÿ ïðèëåòà";
-			Label8->Caption = "Íîìåð ñàìîëåòà";
+			Label1->Caption = "ÐŸÑƒÐ½ÐºÑ‚ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ";
+			Label2->Caption = "ÐŸÑƒÐ½ÐºÑ‚ Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ";
+			Label3->Caption = "Ð”Ð°Ñ‚Ð° Ð²Ñ‹Ð»ÐµÑ‚Ð°";
+			Label4->Caption = "Ð”Ð°Ñ‚Ð° Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°";
+			Label6->Caption = "Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð»ÐµÑ‚Ð°";
+			Label7->Caption = "Ð’Ñ€ÐµÐ¼Ñ Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°";
+			Label8->Caption = "ÐÐ¾Ð¼ÐµÑ€ ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°";
 
 			Label1->Visible = true;
 			Label2->Visible = true;
@@ -101,36 +108,41 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			DateTimePicker1->Visible = true;
 			DateTimePicker2->Visible = true;
 
+			CheckBox1->Visible = true;
+			CheckBox2->Visible = true;
+
 			Form1->ADOQuery1->Active = false;
 			Form1->ADOQuery1->SQL->Text =
-			"SELECT Íîìåð_ñàìîëåòà FROM Ñàìîëåòû";
+			"SELECT ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð° FROM Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹";
 			Form1->ADOQuery1->Active = true;
 			ComboBox1->Items->Clear();
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox1->Items->Add\
-				(Form1->ADOQuery1->FieldByName("Íîìåð_ñàìîëåòà")->AsString);
+				(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°")->AsString);
 			ComboBox1->ItemIndex=0;
 			ComboBox1->Visible = true;
 
 			if (Form1->action) {
+				Label12->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ñ€ÐµÐ¹ÑÐ°";
+				Label12->Visible = true;
 				Form1->ADOQuery1->Active = false;
-				Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_ðåéñà FROM Ðåéñû";
+				Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ° FROM Ð ÐµÐ¹ÑÑ‹";
 				Form1->ADOQuery1->Active = true;
 
 				ComboBox4->Items->Clear();
 				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 					ComboBox4->Items->Add\
-					(Form1->ADOQuery1->FieldByName("Íîìåð_ðåéñà")->AsString);
+					(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°")->AsString);
 				ComboBox4->ItemIndex=0;
 			}
 		break;
 		case 3:
-			Label1->Caption = "Èìÿ";
-			Label2->Caption = "Ôàìèëèÿ";
-			Label3->Caption = "Îò÷åñòâî";
-			Label4->Caption = "Äàòà ðîæäåíèÿ";
-			Label6->Caption = "Ñåðèÿ ïàñïîðòà";
-			Label7->Caption = "Íîìåð ïàñïîðòà";
+			Label1->Caption = "Ð˜Ð¼Ñ";
+			Label2->Caption = "Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ";
+			Label3->Caption = "ÐžÑ‚Ñ‡ÐµÑÑ‚Ð²Ð¾";
+			Label4->Caption = "Ð”Ð°Ñ‚Ð° Ñ€Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ";
+			Label6->Caption = "Ð¡ÐµÑ€Ð¸Ñ Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°";
+			Label7->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°";
 
 			Label1->Visible = true;
 			Label2->Visible = true;
@@ -150,24 +162,28 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 
 			DateTimePicker2->Visible = true;
 
+			CheckBox2->Visible = true;
+
 			if (Form1->action) {
+				Label12->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°";
+				Label12->Visible = true;
 				Form1->ADOQuery1->Active = false;
-				Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_ïàññàæèðà FROM Ïàññàæèðû";
+				Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð° FROM ÐŸÐ°ÑÑÐ°Ð¶Ð¸Ñ€Ñ‹";
 				Form1->ADOQuery1->Active = true;
 
 				ComboBox4->Items->Clear();
 				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 					ComboBox4->Items->Add\
-					(Form1->ADOQuery1->FieldByName("Íîìåð_ïàññàæèðà")->AsString);
+					(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°")->AsString);
 				ComboBox4->ItemIndex=0;
 			}
 		break;
 		case 4:
 			ticket_type = "econom";
 
-			Label11->Caption = "Íîìåð ìåñòà";
-			Label8->Caption = "Íîìåð ïàññàæèðà";
-			Label9->Caption = "Íîìåð ðåéñà";
+			Label11->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ð¼ÐµÑÑ‚Ð°";
+			Label8->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°";
+			Label9->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ñ€ÐµÐ¹ÑÐ°";
 
 			Label11->Visible = true;
 			Label8->Visible = true;
@@ -181,34 +197,36 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 			Panel2->Visible = true;
 
 			Form1->ADOQuery1->Active = false;
-			Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_ïàññàæèðà\
-			FROM Ïàññàæèðû";
+			Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°\
+			FROM ÐŸÐ°ÑÑÐ°Ð¶Ð¸Ñ€Ñ‹";
 			Form1->ADOQuery1->Active = true;
 			ComboBox1->Items->Clear();
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox1->Items->Add\
-				(Form1->ADOQuery1->FieldByName("Íîìåð_ïàññàæèðà")->AsString);
+				(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°")->AsString);
 			ComboBox1->ItemIndex=0;
 
 			Form1->ADOQuery1->Active = false;
-			Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_ðåéñà FROM Ðåéñû";
+			Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ° FROM Ð ÐµÐ¹ÑÑ‹";
 			Form1->ADOQuery1->Active = true;
 			ComboBox2->Items->Clear();
 			for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 				ComboBox2->Items->Add\
-				(Form1->ADOQuery1->FieldByName("Íîìåð_ðåéñà")->AsString);
+				(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°")->AsString);
 			ComboBox2->ItemIndex=0;
 
 			if (Form1->action) {
+				Label12->Caption = "ÐÐ¾Ð¼ÐµÑ€ Ð±Ð¸Ð»ÐµÑ‚Ð°";
+				Label12->Visible = true;
 				Form1->ADOQuery1->Active = false;
-				Form1->ADOQuery1->SQL->Text = "SELECT Íîìåð_áèëåòà FROM Áèëåòû";
+				Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ð±Ð¸Ð»ÐµÑ‚Ð° FROM Ð‘Ð¸Ð»ÐµÑ‚Ñ‹";
 				Form1->ADOQuery1->Active = true;
 
 				ComboBox4->Items->Clear();
 				for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
 					ComboBox4->Items->Add\
-					(Form1->ADOQuery1->FieldByName("Íîìåð_áèëåòà")->AsString);
-				ComboBox4->ItemIndex=0;
+					(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð±Ð¸Ð»ÐµÑ‚Ð°")->AsString);
+				ComboBox4->ItemIndex = 0;
 			}
 		break;
 	}
@@ -216,7 +234,35 @@ void __fastcall TForm4::FormShow(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm4::ComboBox2Select(TObject *Sender)
 {
+	int i, n;
+	Form1->ADOQuery1->Close();
+	Form1->ADOQuery1->SQL->Clear();
+	Form1->ADOQuery1->SQL->Add("\
+		SELECT ÐšÐ¾Ð»_Ð²Ð¾_Ð¼ÐµÑÑ‚\
+		FROM Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹\
+		INNER JOIN Ð ÐµÐ¹ÑÑ‹ ON\
+		Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹.ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð° = Ð ÐµÐ¹ÑÑ‹.ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°\
+		WHERE ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ° = '" + ComboBox2->Text + "'");
+	Form1->ADOQuery1->Open();
+	n = Form1->ADOQuery1->Fields->Fields[0]->AsInteger;
+
+	Form1->ADOQuery1->Active = false;
+	Form1->ADOQuery1->SQL->Text = "SELECT ÐÐ¾Ð¼ÐµÑ€_Ð¼ÐµÑÑ‚Ð° FROM Ð‘Ð¸Ð»ÐµÑ‚Ñ‹\
+	WHERE ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ° = '" + ComboBox2->Text + "'";
+	Form1->ADOQuery1->Active = true;
 	ComboBox3->Items->Clear();
+	if (Form1->action)
+		for (; !Form1->ADOQuery1->Eof; Form1->ADOQuery1->Next())
+			ComboBox3->Items->Add\
+			(Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¼ÐµÑÑ‚Ð°")->AsString);
+		else
+		for (i = 1; i <= n; i++)
+			if (Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¼ÐµÑÑ‚Ð°")->AsInteger != i) {
+				ComboBox3->Items->Add(IntToStr(i));
+				if (!Form1->ADOQuery1->Eof)
+					Form1->ADOQuery1->Next();
+			}
+	ComboBox3->ItemIndex = 0;
 }
 //---------------------------------------------------------------------------
 
@@ -224,49 +270,51 @@ void __fastcall TForm4::Button1Click(TObject *Sender)
 {
 	int n_pas, n_pl, n_fl, n_t, n_s = 0;
 	String sex;
+	switch (Form1->action) {
+	case 0:
 	switch (Form1->object) {
 		case 1:
 			Form1->ADOQuery1->Close();
 			Form1->ADOQuery1->SQL->Clear();
-			Form1->ADOQuery1->SQL->Add("SELECT MAX (Íîìåð_ñàìîëåòà) FROM Ñàìîëåòû");
+			Form1->ADOQuery1->SQL->Add("SELECT MAX (ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°) FROM Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹");
 			Form1->ADOQuery1->Open();
 
 			if ((Edit1->Text.IsEmpty()) || Edit1->Text.Pos("'")
 			|| !(Form1->is_numeric(Edit2->Text)))
-				ShowMessage("Íåà");
+				ShowMessage("ÐÐµÐ°");
 			else {
 				n_pl = Form1->ADOQuery1->Fields->Fields[0]->AsInteger + 1;
 				Form1->ADOQuery1->Close();
 				Form1->ADOQuery1->SQL->Clear();
 				Form1->ADOQuery1->SQL->Add(\
-				"INSERT INTO Áèëåòû\
-				(Íîìåð_ñàìîëåòà, Òèï_ñàìîëåòà, Êîë_âî_ìåñò)\
+				"INSERT INTO Ð‘Ð¸Ð»ÐµÑ‚Ñ‹\
+				(ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°, Ð¢Ð¸Ð¿_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°, ÐšÐ¾Ð»_Ð²Ð¾_Ð¼ÐµÑÑ‚)\
 				VALUES ('" + IntToStr(n_pl) + "','"\
 				+ Edit1->Text + "','" + Edit2->Text + "')");
 				Form1->ADOQuery1->ExecSQL();
-				ShowMessage("Àãà");
+				ShowMessage("ÐÐ³Ð°");
 			}
 		break;
 		case 2:
 			Form1->ADOQuery1->Close();
 			Form1->ADOQuery1->SQL->Clear();
-			Form1->ADOQuery1->SQL->Add("SELECT MAX (Íîìåð_ðåéñà) FROM Ðåéñû");
+			Form1->ADOQuery1->SQL->Add("SELECT MAX (ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°) FROM Ð ÐµÐ¹ÑÑ‹");
 			Form1->ADOQuery1->Open();
 
 			if ((Edit1->Text.IsEmpty()) || (Edit2->Text.IsEmpty())
 			|| Edit1->Text.Pos("'") || Edit2->Text.Pos("'")
 			|| !(Form1->is_time(Edit4->Text)) || !(Form1->is_time(Edit5->Text)))
-				ShowMessage("Íåà");
+				ShowMessage("ÐÐµÐ°");
 			else {
 				n_fl = Form1->ADOQuery1->Fields->Fields[0]->AsInteger + 1;
 				Form1->ADOQuery1->Close();
 				Form1->ADOQuery1->SQL->Clear();
 				Form1->ADOQuery1->SQL->Add(\
-				"INSERT INTO Ðåéñû (\
-				Íîìåð_ðåéñà, Íîìåð_ñàìîëåòà,\
-				Äàòà_âûëåòà, Äàòà_ïðèëåòà,\
-				Ïóíêò_îòïðàâëåíèÿ, Ïóíêò_íàçíà÷åíèÿ,\
-				Âðåìÿ_âûëåòà, Âðåìÿ_ïðèëåòà)\
+				"INSERT INTO Ð ÐµÐ¹ÑÑ‹ (\
+				ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°, ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°,\
+				Ð”Ð°Ñ‚Ð°_Ð²Ñ‹Ð»ÐµÑ‚Ð°, Ð”Ð°Ñ‚Ð°_Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°,\
+				ÐŸÑƒÐ½ÐºÑ‚_Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ, ÐŸÑƒÐ½ÐºÑ‚_Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ,\
+				Ð’Ñ€ÐµÐ¼Ñ_Ð²Ñ‹Ð»ÐµÑ‚Ð°, Ð’Ñ€ÐµÐ¼Ñ_Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°)\
 				VALUES ('" + IntToStr(n_fl)\
 				+ "','" + ComboBox1->Text\
 				+ "','" + DateTimePicker1->Date.DateString()\
@@ -274,50 +322,50 @@ void __fastcall TForm4::Button1Click(TObject *Sender)
 				+ "','" + Edit1->Text + "','" + Edit2->Text\
 				+ "','"	+ Edit4->Text + "','" + Edit5->Text + "')");
 				Form1->ADOQuery1->ExecSQL();         	
-				ShowMessage("Àãà");
+				ShowMessage("ÐÐ³Ð°");
 			}
 		break;
 		case 3:
 			Form1->ADOQuery1->Close();
 			Form1->ADOQuery1->SQL->Clear();
-			Form1->ADOQuery1->SQL->Add("SELECT MAX (Íîìåð_ïàññàæèðà) FROM Ïàññàæèðû");
+			Form1->ADOQuery1->SQL->Add("SELECT MAX (ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°) FROM ÐŸÐ°ÑÑÐ°Ð¶Ð¸Ñ€Ñ‹");
 			Form1->ADOQuery1->Open();
 
 			if (Edit1->Text.IsEmpty() || Edit2->Text.IsEmpty()
 			|| Edit3->Text.IsEmpty() || Edit1->Text.Pos("'")
 			|| Edit2->Text.Pos("'") || Edit3->Text.Pos("'")
 			|| !(Form1->is_numeric(Edit4->Text)) || !(Form1->is_numeric(Edit5->Text)))
-				ShowMessage("Íåà");
+				ShowMessage("ÐÐµÐ°");
 			else {
 				n_pas = Form1->ADOQuery1->Fields->Fields[0]->AsInteger + 1;
-				if (RadioButton1->Checked) sex = "ì";
-				else sex = "æ";
+				if (RadioButton1->Checked) sex = "m";
+				else sex = "f";
 				Form1->ADOQuery1->Close();
 				Form1->ADOQuery1->SQL->Clear();
 				Form1->ADOQuery1->SQL->Add(\
-				"INSERT INTO Ïàññàæèðû (\
-				Íîìåð_ïàññàæèðà, Èìÿ,\
-				Ôàìèëèÿ, Îò÷åñòâî,\
-				Äàòà_Ðîæäåíèÿ, Ïîë,\
-				Ñåðèÿ_ïàñïîðòà, Íîìåð_ïàñïîðòà)\
+				"INSERT INTO ÐŸÐ°ÑÑÐ°Ð¶Ð¸Ñ€Ñ‹ (\
+				ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°, Ð˜Ð¼Ñ,\
+				Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ, ÐžÑ‚Ñ‡ÐµÑÑ‚Ð²Ð¾,\
+				Ð”Ð°Ñ‚Ð°_Ð Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ, ÐŸÐ¾Ð»,\
+				Ð¡ÐµÑ€Ð¸Ñ_Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°, ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°)\
 				VALUES ('" + IntToStr(n_pas) + "','" + Edit1->Text\
 				+ "','" + Edit2->Text + "','" + Edit3->Text\
 				+ "','" + DateTimePicker1->Date.DateString()\
 				+ "','"	+ sex + "','" + Edit4->Text + "','" + Edit5->Text\
 				+ "')");
 				Form1->ADOQuery1->ExecSQL();         	
-				ShowMessage("Àãà");
+				ShowMessage("ÐÐ³Ð°");
 			}
 			break;
 		case 4:
 			Form1->ADOQuery1->Close();
 			Form1->ADOQuery1->SQL->Clear();
-			Form1->ADOQuery1->SQL->Add("SELECT MAX (Íîìåð_áèëåòà) FROM Áèëåòû");
+			Form1->ADOQuery1->SQL->Add("SELECT MAX (ÐÐ¾Ð¼ÐµÑ€_Ð±Ð¸Ð»ÐµÑ‚Ð°) FROM Ð‘Ð¸Ð»ÐµÑ‚Ñ‹");
 			Form1->ADOQuery1->Open();
 
 			if ((ComboBox1->Text.IsEmpty())||
 			(ComboBox2->Text.IsEmpty())||(ComboBox3->Text.IsEmpty()))
-				ShowMessage("Íåà");
+				ShowMessage("ÐÐµÐ°");
 			else {
 				n_t = Form1->ADOQuery1->Fields->Fields[0]->AsInteger + 1;
 				n_pas = ComboBox1->Text.ToInt();
@@ -327,17 +375,73 @@ void __fastcall TForm4::Button1Click(TObject *Sender)
 				Form1->ADOQuery1->Close();
 				Form1->ADOQuery1->SQL->Clear();
 				Form1->ADOQuery1->SQL->Add(\
-				"INSERT INTO Áèëåòû\
-				(Íîìåð_áèëåòà, Òèï_áèëåòà, Íîìåð_ìåñòà,\
-				Íîìåð_ïàññàæèðà, Íîìåð_ðåéñà)\
+				"INSERT INTO Ð‘Ð¸Ð»ÐµÑ‚Ñ‹\
+				(ÐÐ¾Ð¼ÐµÑ€_Ð±Ð¸Ð»ÐµÑ‚Ð°, Ð¢Ð¸Ð¿_Ð±Ð¸Ð»ÐµÑ‚Ð°, ÐÐ¾Ð¼ÐµÑ€_Ð¼ÐµÑÑ‚Ð°,\
+				ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°, ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°)\
 				VALUES (" + IntToStr(n_t) + ",'"\
 				+ ticket_type + "'," + IntToStr(n_s)\
 				+ "," + n_pas + "," + n_fl + ")");
 				Form1->ADOQuery1->ExecSQL();
-				ShowMessage("Àãà");
+				ShowMessage("ÐÐ³Ð°");
 				ComboBox3->Items->Clear();
 			}
 		break;
+	}
+	break;
+	case 1:
+	Form1->ADOQuery1->Edit();
+	switch (Form1->object) {
+		case 1:
+			if (!(Edit1->Text.IsEmpty()) || Edit1->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("Ð¢Ð¸Ð¿_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°")->AsString = Edit1->Text;
+			if (Form1->is_numeric(Edit2->Text))
+				Form1->ADOQuery1->FieldByName("ÐšÐ¾Ð»_Ð²Ð¾_Ð¼ÐµÑÑ‚")->AsString = Edit2->Text;
+		break;
+		case 2:
+			if (!Edit1->Text.IsEmpty() || Edit1->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("ÐŸÑƒÐ½ÐºÑ‚_Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ")->AsString = Edit1->Text;
+			if (!Edit2->Text.IsEmpty() || Edit2->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("ÐŸÑƒÐ½ÐºÑ‚_Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ")->AsString = Edit2->Text;
+			if (!Edit4->Text.IsEmpty() || Form1->is_time(Edit4->Text))
+				Form1->ADOQuery1->FieldByName("Ð’Ñ€ÐµÐ¼Ñ_Ð²Ñ‹Ð»ÐµÑ‚Ð°")->AsString = Edit4->Text;
+			if (!Edit5->Text.IsEmpty() || Form1->is_time(Edit5->Text))
+				Form1->ADOQuery1->FieldByName("Ð’Ñ€ÐµÐ¼Ñ_Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°")->AsString = Edit5->Text;
+			if (DateTimePicker1->Enabled)
+				Form1->ADOQuery1->FieldByName("Ð”Ð°Ñ‚Ð°_Ð²Ñ‹Ð»ÐµÑ‚Ð°")->AsString =
+				DateTimePicker1->Date.DateString();
+			if (DateTimePicker2->Enabled)
+				Form1->ADOQuery1->FieldByName("Ð”Ð°Ñ‚Ð°_Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°")->AsString =
+				DateTimePicker2->Date.DateString();
+		break;
+		case 3:
+			if (!Edit1->Text.IsEmpty() || Edit1->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("Ð˜Ð¼Ñ")->AsString = Edit1->Text;
+			if (!Edit2->Text.IsEmpty() || Edit2->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ")->AsString = Edit2->Text;
+			if (!Edit3->Text.IsEmpty() || Edit3->Text.Pos("'"))
+				Form1->ADOQuery1->FieldByName("ÐžÑ‚Ñ‡ÐµÑÑ‚Ð²Ð¾")->AsString = Edit3->Text;
+			if (RadioButton1->Checked)
+				Form1->ADOQuery1->FieldByName("ÐŸÐ¾Ð»")->AsString = "m";
+				else Form1->ADOQuery1->FieldByName("ÐŸÐ¾Ð»")->AsString = "f";
+			if (DateTimePicker2->Enabled)
+				Form1->ADOQuery1->FieldByName("Ð”Ð°Ñ‚Ð°_Ð Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ")->AsString =
+				DateTimePicker2->Date.DateString();
+			if (Form1->is_numeric(Edit4->Text))
+				Form1->ADOQuery1->FieldByName("Ð¡ÐµÑ€Ð¸Ñ_Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°")->AsInteger = Edit4->Text.ToInt();
+			if (Form1->is_numeric(Edit5->Text))
+				Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÐ¿Ð¾Ñ€Ñ‚Ð°")->AsInteger = Edit5->Text.ToInt();
+		case 4:
+				Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð°")->AsInteger = ComboBox1->Text.ToInt();
+				Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ°")->AsInteger = ComboBox2->Text.ToInt();
+			if (!(ComboBox3->Text.IsEmpty()))
+				Form1->ADOQuery1->FieldByName("ÐÐ¾Ð¼ÐµÑ€_Ð¼ÐµÑÑ‚Ð°")->AsInteger = ComboBox3->Text.ToInt();
+		break;
+	}
+	Form1->ADOQuery1->Post();
+	break;
+	case 2:
+	Form1->ADOQuery1->Delete();
+	break;
 	}
 }                               
 //---------------------------------------------------------------------------
@@ -363,9 +467,57 @@ void __fastcall TForm4::RadioButton3Click(TObject *Sender)
 void __fastcall TForm4::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	Form1->ADOQuery1->Active = false;
-	Form1->ADOQuery1->SQL->Text = "SELECT * FROM Ðåéñû";
+	Form1->ADOQuery1->SQL->Text = "SELECT * FROM Ð ÐµÐ¹ÑÑ‹";
 	Form1->ADOQuery1->Active = true;
 	Form1->Show();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm4::ComboBox4Select(TObject *Sender)
+{
+	switch (Form1->object) {
+		case 1:
+			Form1->ADOQuery1->Active = false;
+			Form1->ADOQuery1->SQL->Text = "SELECT * FROM Ð¡Ð°Ð¼Ð¾Ð»ÐµÑ‚Ñ‹\
+			WHERE ÐÐ¾Ð¼ÐµÑ€_ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð° = " + ComboBox4->Text;
+			Form1->ADOQuery1->Active = true;
+		break;
+		case 2:
+			Form1->ADOQuery1->Active = false;
+			Form1->ADOQuery1->SQL->Text = "SELECT * FROM Ð ÐµÐ¹ÑÑ‹\
+			WHERE ÐÐ¾Ð¼ÐµÑ€_Ñ€ÐµÐ¹ÑÐ° = " + ComboBox4->Text;
+			Form1->ADOQuery1->Active = true;
+		break;
+		case 3:
+			Form1->ADOQuery1->Active = false;
+			Form1->ADOQuery1->SQL->Text = "SELECT * FROM ÐŸÐ°ÑÑÐ°Ð¶Ð¸Ñ€Ñ‹\
+			WHERE ÐÐ¾Ð¼ÐµÑ€_Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ð° = " + ComboBox4->Text;
+			Form1->ADOQuery1->Active = true;
+		break;
+		case 4:
+			Form1->ADOQuery1->Active = false;
+			Form1->ADOQuery1->SQL->Text = "SELECT * FROM Ð‘Ð¸Ð»ÐµÑ‚Ñ‹\
+			WHERE ÐÐ¾Ð¼ÐµÑ€_Ð±Ð¸Ð»ÐµÑ‚Ð° = " + ComboBox4->Text;
+			Form1->ADOQuery1->Active = true;
+		break;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::CheckBox1Click(TObject *Sender)
+{
+	if (CheckBox1->State == cbChecked)
+		DateTimePicker1->Enabled = true;
+	else DateTimePicker1->Enabled = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm4::CheckBox2Click(TObject *Sender)
+{
+	if (CheckBox2->State == cbChecked)
+		DateTimePicker2->Enabled = true;
+	else DateTimePicker2->Enabled = false;
+}
+//---------------------------------------------------------------------------
+
 

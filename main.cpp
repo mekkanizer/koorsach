@@ -379,3 +379,33 @@ void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 }
 //---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Edit2Change(TObject *Sender)
+{
+	String table = "Самолеты";
+	if (RadioButton1->Checked) table = "Билеты";
+	if (RadioButton2->Checked) table = "Пассажиры";
+	if (RadioButton3->Checked) table = "Рейсы";
+	if (Edit1->Text.IsEmpty() || Edit1->Text.Pos("'")
+	 || Edit2->Text.IsEmpty() || Edit2->Text.Pos("'"))
+	{
+		ADOQuery1->Close();
+		ADOQuery1->SQL->Clear();
+		ADOQuery1->SQL->Add("SELECT * FROM " + table + " WHERE "
+		+ Edit1->Text + " LIKE '" + Edit2->Text + "%'");
+		ADOQuery1->Open();
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Label1Click(TObject *Sender)
+{
+	Label2->Visible = true;
+	Label3->Visible = true;
+
+	Edit1->Visible = true;
+	Edit2->Visible = true;
+}
+//---------------------------------------------------------------------------
+

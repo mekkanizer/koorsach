@@ -16,6 +16,48 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label2: TLabel
+    Left = 472
+    Top = 41
+    Width = 34
+    Height = 25
+    Caption = #1043#1076#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object Label3: TLabel
+    Left = 288
+    Top = 211
+    Width = 44
+    Height = 25
+    Caption = #1063#1077#1075#1086
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object Label1: TLabel
+    Left = 434
+    Top = 211
+    Width = 57
+    Height = 25
+    Caption = #1055#1086#1080#1089#1082
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    OnClick = Label1Click
+  end
   object Panel1: TPanel
     Left = 424
     Top = 72
@@ -62,8 +104,8 @@ object Form1: TForm1
     end
   end
   object add_rand: TButton
-    Left = 79
-    Top = 248
+    Left = 31
+    Top = 240
     Width = 75
     Height = 25
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100' (!)'
@@ -84,21 +126,38 @@ object Form1: TForm1
     TitleFont.Style = []
   end
   object DBNavigator1: TDBNavigator
-    Left = 160
-    Top = 247
+    Left = 31
+    Top = 271
     Width = 240
     Height = 25
     DataSource = DataSource1
     TabOrder = 3
   end
   object Button1: TButton
-    Left = 456
-    Top = 248
+    Left = 128
+    Top = 240
     Width = 83
     Height = 25
     Caption = #1050#1091#1087#1080#1090#1100' '#1073#1080#1083#1077#1090
     TabOrder = 4
     OnClick = Button1Click
+  end
+  object Edit1: TEdit
+    Left = 277
+    Top = 242
+    Width = 121
+    Height = 21
+    TabOrder = 5
+    Visible = False
+  end
+  object Edit2: TEdit
+    Left = 448
+    Top = 242
+    Width = 121
+    Height = 21
+    TabOrder = 6
+    Visible = False
+    OnChange = Edit2Change
   end
   object DataSource1: TDataSource
     DataSet = ADOQuery1

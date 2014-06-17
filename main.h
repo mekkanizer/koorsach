@@ -46,6 +46,11 @@ __published:	// IDE-managed Components
 	TMenuItem *N13;
 	TMenuItem *N14;
 	TMenuItem *N15;
+	TEdit *Edit1;
+	TLabel *Label2;
+	TLabel *Label3;
+	TLabel *Label1;
+	TEdit *Edit2;
 	void __fastcall RadioButton1Click(TObject *Sender);
 	void __fastcall RadioButton2Click(TObject *Sender);
 	void __fastcall RadioButton3Click(TObject *Sender);
@@ -66,12 +71,15 @@ __published:	// IDE-managed Components
 	void __fastcall N14Click(TObject *Sender);
 	void __fastcall N15Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall Edit2Change(TObject *Sender);
+	void __fastcall Label1Click(TObject *Sender);
 	//void __fastcall FormCreate(TObject *Sender);
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 	int object, action;
 	bool __fastcall is_numeric (String data);
 	bool __fastcall is_time (String data);
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

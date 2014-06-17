@@ -104,6 +104,14 @@ object Form4: TForm4
     Caption = #1053#1086#1084#1077#1088' '#1084#1077#1089#1090#1072
     Visible = False
   end
+  object Label12: TLabel
+    Left = 296
+    Top = 251
+    Width = 37
+    Height = 13
+    Caption = 'Label12'
+    Visible = False
+  end
   object Edit1: TEdit
     Left = 32
     Top = 32
@@ -262,11 +270,36 @@ object Form4: TForm4
     Visible = False
   end
   object ComboBox4: TComboBox
-    Left = 496
-    Top = 78
+    Left = 296
+    Top = 268
     Width = 145
     Height = 21
     TabOrder = 13
-    Text = 'ComboBox4'
+    Visible = False
+    OnSelect = ComboBox4Select
+  end
+  object CheckBox1: TCheckBox
+    Left = 11
+    Top = 130
+    Width = 15
+    Height = 17
+    Caption = 'CheckBox1'
+    Checked = True
+    State = cbChecked
+    TabOrder = 14
+    Visible = False
+    OnClick = CheckBox1Click
+  end
+  object CheckBox2: TCheckBox
+    Left = 11
+    Top = 180
+    Width = 15
+    Height = 17
+    Caption = 'CheckBox2'
+    Checked = True
+    State = cbChecked
+    TabOrder = 15
+    Visible = False
+    OnClick = CheckBox2Click
   end
 end
