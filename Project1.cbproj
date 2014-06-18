@@ -115,47 +115,54 @@
         <BCC_PCHName_Clang>E:\Документы\лара(host)\koorsach\Project1PCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="E:\Документы\лара(host)\koorsach\add.cpp">
+        <CppCompile Include="add.cpp">
             <Form>Form4</Form>
             <FormType>dfm</FormType>
-            <DependentOn>E:\Документы\лара(host)\koorsach\add.h</DependentOn>
+            <DependentOn>add.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <CppCompile Include="E:\Документы\лара(host)\koorsach\login.cpp">
+        <CppCompile Include="connection.cpp">
+            <Form>Form6</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>connection.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="login.cpp">
             <Form>Form5</Form>
             <FormType>dfm</FormType>
-            <DependentOn>E:\Документы\лара(host)\koorsach\login.h</DependentOn>
+            <DependentOn>login.h</DependentOn>
             <BuildOrder>6</BuildOrder>
         </CppCompile>
-        <CppCompile Include="E:\Документы\лара(host)\koorsach\main.cpp">
+        <CppCompile Include="main.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
-            <DependentOn>E:\Документы\лара(host)\koorsach\main.h</DependentOn>
+            <DependentOn>main.h</DependentOn>
             <BuildOrder>2</BuildOrder>
-        </CppCompile>
-        <PCHCompile Include="E:\Документы\лара(host)\koorsach\Project1PCH1.h">
-            <BuildOrder>1</BuildOrder>
-        </PCHCompile>
-        <CppCompile Include="E:\Документы\лара(host)\koorsach\purchase.cpp">
-            <Form>Form2</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>E:\Документы\лара(host)\koorsach\purchase.h</DependentOn>
-            <BuildOrder>3</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="E:\Документы\лара(host)\koorsach\room.cpp">
-            <Form>Form3</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>E:\Документы\лара(host)\koorsach\room.h</DependentOn>
-            <BuildOrder>4</BuildOrder>
         </CppCompile>
         <CppCompile Include="Project1.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <FormResources Include="E:\Документы\лара(host)\koorsach\purchase.dfm"/>
-        <FormResources Include="E:\Документы\лара(host)\koorsach\room.dfm"/>
-        <FormResources Include="E:\Документы\лара(host)\koorsach\add.dfm"/>
-        <FormResources Include="E:\Документы\лара(host)\koorsach\main.dfm"/>
-        <FormResources Include="E:\Документы\лара(host)\koorsach\login.dfm"/>
+        <PCHCompile Include="Project1PCH1.h">
+            <BuildOrder>1</BuildOrder>
+        </PCHCompile>
+        <CppCompile Include="purchase.cpp">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>purchase.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="room.cpp">
+            <Form>Form3</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>room.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <FormResources Include="purchase.dfm"/>
+        <FormResources Include="room.dfm"/>
+        <FormResources Include="add.dfm"/>
+        <FormResources Include="login.dfm"/>
+        <FormResources Include="main.dfm"/>
+        <FormResources Include="connection.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
